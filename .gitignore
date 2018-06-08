@@ -1,0 +1,5 @@
+*.mat
+*.tgz
+!all_avg_2015.mat
+.directory
+
