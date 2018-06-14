@@ -3,7 +3,7 @@ CS 235 Tensor Decompositions Code
 
 ## Description
 
-This folder contains the code for the Coupled Matrix Tensor Factorization (CMTF) and Canonical Polyadic (CP) decomposition parts of the project.
+This folder contains the code for the Coupled Matrix Tensor Factorization (CMTF) and Canonical Polyadic (CP) decomposition parts of the project. Note that the code is messy and doesn't make much sense without the report.
 
 ## Dependencies
 
