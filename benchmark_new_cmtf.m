@@ -11,9 +11,6 @@ PRED_END = 1405;
 X = X(:, :, 1:PRED_END);
 weather = weather(:, 1:PRED_END);
 
-% Define a shuffle function
-shuf = @(x) x(randperm(size(x, 1)), :);
-
 % Set constants
 RANK = 5;
 
@@ -35,10 +32,10 @@ mse = 0;
 
 rows = find(X(:, :, 1) ~= 0);
 for row = rows.'
-    realVals = X(row(1), row(2), PRED_START:PRED_END);
-    predVals = Y(row(1), row(2), PRED_START:PRED_END);
-    localMae = sum(abs(realVals - predVals));
-    localMse = sum((realVals - predVals) ^ 2);
+    realVals = double(X(row(1), row(2), PRED_START:PRED_END));
+    predVals = double(Y(row(1), row(2), PRED_START:PRED_END));
+    localMae = sum(abs(realVals - predVals)) / (PRED_END - PRED_START + 1);
+    localMse = sum((realVals - predVals) .^ 2) / (PRED_END - PRED_START + 1);
 
     mae = mae + localMae;
     mse = mse + localMse;

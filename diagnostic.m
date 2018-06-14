@@ -10,15 +10,15 @@ for R = 1:100
 %         Fac = cp_als(X_lnormal, R, 'printitn', 0);
         opts = struct();
         opts.printEvery = 0;
-        [Fac, Fac0, output] = cp_opt(X_comic, R, 'opt_options', opts, 'lower', 0);
-        [c, time] = efficient_corcondia(X_comic, Fac, 0);
+        [Fac, Fac0, output] = cp_opt(X, R, 'opt_options', opts, 'lower', 0);
+        [c, time] = efficient_corcondia(X, Fac, 0);
         if c > maxC
             best_output = output;
             maxC = c;
         end
     end
     c_vals(R) = maxC;
-    l_vals(R) = norm(X_comic - full(Fac));
+    l_vals(R) = norm(X - full(Fac));
     fprintf('[Rank %d]: Got c value of %f\n', R, maxC);
     fprintf('Loss: %f, Fit: %f\n', l_vals(R), output.Fit);
 end
