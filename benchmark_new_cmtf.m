@@ -36,9 +36,9 @@ mse = 0;
 rows = find(X(:, :, 1) ~= 0);
 for row = rows.'
     realVals = X(row(1), row(2), PRED_START:PRED_END);
-    predVal = Y(row(1), row(2), PRED_START:PRED_END);
-    localMae = sum(abs(realVal - predVal));
-    localMse = sum((realVal - predVal) ^ 2);
+    predVals = Y(row(1), row(2), PRED_START:PRED_END);
+    localMae = sum(abs(realVals - predVals));
+    localMse = sum((realVals - predVals) ^ 2);
 
     mae = mae + localMae;
     mse = mse + localMse;
